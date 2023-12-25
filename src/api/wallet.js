@@ -11,16 +11,6 @@ const connect = async () => {
       const networkId = await ethereum.request({
         method: "net_version",
       });
-      if (networkId == siteConfig.NETWORK.ID) {
-        if (accounts.length !== 0)
-          return Promise.resolve({
-            message: 'success',
-            account: accounts[0]
-          })
-      }
-      else {
-        return Promise.reject({message: `Change network to ${siteConfig.NETWORK.NAME}.`})
-      }
     }
     catch (error) {
       return Promise.reject({message: "Something went wrong."})
